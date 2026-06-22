@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Financas Inteligentes</title>
+    <link>https://colunas0428.github.io/financas-inteligentes/</link>
+    <description>Dicas de poupanca e financas pessoais</description>
+    <item>
+      <title>Como Economizar Dinheiro Todo Mes</title>
+      <link>https://colunas0428.github.io/financas-inteligentes/articles/economizar-dinheiro.html</link>
+      <description>Descubra estrategias praticas para reduzir gastos e aumentar as suas economias mensais.</description>
+    </item>
+    <item>
+      <title>Orcamento Pessoal: O Guia Definitivo</title>
+      <link>https://colunas0428.github.io/financas-inteligentes/articles/orcamento-pessoal.html</link>
+      <description>Aprenda a criar e manter um orcamento pessoal eficiente.</description>
+    </item>
+    <item>
+      <title>Investimentos para Iniciantes</title>
+      <link>https://colunas0428.github.io/financas-inteligentes/articles/investimentos-iniciantes.html</link>
+      <description>Como comecar a investir com pouco dinheiro.</description>
+    </item>
+  </channel>
+</rss>
