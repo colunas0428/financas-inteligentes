@@ -1,0 +1,73 @@
+name: Daily Content Generation
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: pip install requests
+    
+    - name: Generate article
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: |
+        TOPICS=(
+          "Como economizar dinheiro no dia a dia"
+          "Investimentos para iniciantes no Brasil"
+          "Como sair das dividas rapidamente"
+          "Tesouro Direto: guia completo"
+          "Como montar um fundo de emergencia"
+          "Cartao de credito: como usar a seu favor"
+          "Renda extra: as melhores opcoes"
+          "Como negociar dividas com bancos"
+          "Orcamento familiar: passo a passo"
+          "Previdencia privada vale a pena"
+          "Como investir em acoes para iniciantes"
+          "Fundos de investimento: o que sao"
+          "Como reduzir gastos fixos mensais"
+          "Educacao financeira para jovens"
+          "Como planejar a aposentadoria"
+          "CDB e LCI: diferencas e vantagens"
+          "Como comprar um imovel com planejamento"
+          "Seguro de vida: quando vale a pena"
+          "Como criar uma planilha financeira"
+          "Financas para autonomos e freelancers"
+          "Como aumentar sua renda passiva"
+          "Criptomoedas: riscos e oportunidades"
+          "Como economizar na compra de alimentos"
+          "Financiamento de carro: cuidados"
+          "Como usar aplicativos de financas"
+          "Dicas para poupar dinheiro em viagens"
+          "Como evitar armadilhas financeiras"
+          "Consorcio: vantagens e desvantagens"
+          "Como ensinar financas para filhos"
+          "Planejamento financeiro anual"
+        )
+        RANDOM_INDEX=$((RANDOM % ${#TOPICS[@]}))
+        TOPIC="${TOPICS[$RANDOM_INDEX]}"
+        echo "Generating article about: $TOPIC"
+        python generate_article.py "$TOPIC"
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git diff --quiet && git diff --staged --quiet || git commit -m "Add new article: $(date '+%Y-%m-%d')"
+        git push
