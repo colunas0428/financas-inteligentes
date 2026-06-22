@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercados Financeiros - Finanças Inteligentes</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f8f9fa;color:#333}
+header{background:linear-gradient(135deg,#1a472a,#2d6a4f);color:white;padding:40px 20px;text-align:center}
+header h1{font-size:2.5em;margin-bottom:10px;letter-spacing:1px}
+header p{font-size:1.2em;opacity:.9}
+nav{background:#155724;padding:10px 20px;text-align:center}
+nav a{color:#a8d5b5;text-decoration:none;margin:0 15px;font-weight:500}
+nav a:hover{color:white}
+.container{max-width:1100px;margin:40px auto;padding:0 20px}
+.section-title{font-size:1.8em;color:#1a472a;margin-bottom:30px;border-bottom:3px solid #2d6a4f;padding-bottom:10px}
+.crypto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:30px}
+.crypto-card{background:white;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,.1);padding:20px;text-align:center;transition:transform .2s}
+.crypto-card:hover{transform:translateY(-4px)}
+.crypto-icon{font-size:2.2em;margin-bottom:8px}
+.crypto-name{font-size:.85em;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.crypto-price{font-size:1.4em;font-weight:700;color:#1a472a;margin-bottom:6px}
+.crypto-change{font-size:.95em;font-weight:600;padding:3px 10px;border-radius:20px;display:inline-block}
+.crypto-change.positive{background:#d4edda;color:#155724}
+.crypto-change.negative{background:#f8d7da;color:#721c24}
+.crypto-change.neutral{background:#e9ecef;color:#495057}
+.last-updated{font-size:.78em;color:#999;margin-top:8px}
+.spinner{display:flex;align-items:center;justify-content:center;padding:50px;flex-direction:column;gap:15px;color:#666}
+.spinner-ring{width:44px;height:44px;border:4px solid #e9ecef;border-top-color:#2d6a4f;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-box{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;border-radius:8px;padding:20px;text-align:center}
+.chart-section{background:white;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,.08);padding:30px;margin-bottom:40px}
+.chart-wrapper{position:relative;height:320px}
+.fg-section{background:white;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,.08);padding:30px;margin-bottom:40px;text-align:center}
+.fg-gauge-wrap{margin:20px auto;max-width:300px}
+.fg-bar{height:28px;border-radius:14px;background:#e9ecef;overflow:hidden;margin:10px 0}
+.fg-fill{height:100%;border-radius:14px;transition:width .6s ease}
+.fg-value{font-size:3em;font-weight:800;margin:10px 0 4px}
+.fg-label{font-size:1.2em;font-weight:600;margin-bottom:6px}
+.fg-desc{font-size:.9em;color:#666;max-width:360px;margin:0 auto}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:40px}
+.tip-card{background:white;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,.08);padding:22px;border-left:4px solid #2d6a4f}
+.tip-card h4{color:#1a472a;margin-bottom:10px;font-size:1em}
+.tip-card p{color:#555;font-size:.92em;line-height:1.6}
+.tip-number{display:inline-block;background:#2d6a4f;color:white;width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;font-size:.85em;font-weight:700;margin-right:8px;flex-shrink:0}
+.resources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:40px}
+.resource-card{background:white;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,.08);overflow:hidden;transition:transform .2s}
+.resource-card:hover{transform:translateY(-4px)}
+.resource-thumb{height:130px;background:linear-gradient(135deg,#c0392b,#e74c3c);display:flex;align-items:center;justify-content:center;font-size:3em}
+.resource-body{padding:16px}
+.resource-body h4{color:#1a472a;font-size:.95em;margin-bottom:8px;line-height:1.4}
+.resource-body a{display:inline-block;background:#c0392b;color:white;padding:7px 16px;border-radius:5px;text-decoration:none;font-size:.85em}
+.resource-body a:hover{background:#96281b}
+.refresh-btn{background:#2d6a4f;color:white;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:.9em;font-weight:600;margin-bottom:20px}
+.refresh-btn:hover{background:#1a472a}
+.refresh-btn:disabled{background:#95a5a6;cursor:not-allowed}
+.disclaimer{background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:16px 20px;margin-bottom:40px;text-align:center;font-size:.88em;color:#856404}
+footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:30px;margin-top:40px}
+footer p{margin:5px 0}
+@media(max-width:600px){
+  header h1{font-size:1.8em}
+  .crypto-grid{grid-template-columns:repeat(2,1fr)}
+  .chart-wrapper{height:220px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>&#128200; Mercados Financeiros</h1>
+<p>Acompanhe cripto em tempo real com dados ao vivo</p>
+</header>
+<nav>
+<a href="/financas-inteligentes/">Início</a>
+<a href="/financas-inteligentes/articles/">Artigos</a>
+<a href="/financas-inteligentes/mercados.html">Mercados</a>
+<a href="/financas-inteligentes/#sobre">Sobre</a>
+</nav>
+
+<div class="container">
+
+  <!-- CRYPTO PRICES -->
+  <h2 class="section-title">&#128176; Preços ao Vivo (Cripto)</h2>
+  <button class="refresh-btn" id="refreshBtn" onclick="fetchCrypto()">&#8635; Atualizar Agora</button>
+  <div id="cryptoContainer">
+    <div class="spinner"><div class="spinner-ring"></div><span>A carregar preços...</span></div>
+  </div>
+
+  <!-- CHART -->
+  <div class="chart-section">
+    <h2 class="section-title" style="border:none;margin-bottom:20px">&#128202; Gráfico de Preços (EUR)</h2>
+    <div class="chart-wrapper">
+      <canvas id="cryptoChart"></canvas>
+    </div>
+  </div>
+
+  <!-- FEAR & GREED -->
+  <h2 class="section-title">&#127914; Índice Medo &amp; Ganância</h2>
+  <div class="fg-section" id="fgContainer">
+    <div class="spinner"><div class="spinner-ring"></div><span>A carregar índice...</span></div>
+  </div>
+
+  <!-- TIPS -->
+  <h2 class="section-title">&#128161; Dicas para Investir em Cripto com Segurança</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h4><span class="tip-number">1</span>Invista apenas o que pode perder</h4>
+      <p>Criptomoedas são altamente voláteis. Nunca invista dinheiro de emergência ou que precise a curto prazo. Comece com uma pequena percentagem do seu portfólio.</p>
+    </div>
+    <div class="tip-card">
+      <h4><span class="tip-number">2</span>Diversifique o portfólio</h4>
+      <p>Não coloque todo o dinheiro numa única moeda. Distribua entre Bitcoin, Ethereum e outros projetos sólidos para reduzir o risco total.</p>
+    </div>
+    <div class="tip-card">
+      <h4><span class="tip-number">3</span>Use exchanges confiáveis</h4>
+      <p>Prefira plataformas regulamentadas e com boa reputação como Binance, Coinbase ou Kraken. Ative sempre a autenticação de dois fatores (2FA).</p>
+    </div>
+    <div class="tip-card">
+      <h4><span class="tip-number">4</span>Guarde as suas chaves privadas</h4>
+      <p>Se guardar cripto a longo prazo, use uma carteira hardware (cold wallet). "Not your keys, not your coins" — quem controla as chaves controla os fundos.</p>
+    </div>
+    <div class="tip-card">
+      <h4><span class="tip-number">5</span>Cuidado com promessas de retorno garantido</h4>
+      <p>Esquemas que prometem retornos fixos e altos são quase sempre fraudes. Pesquise sempre antes de investir e desconfie de influencers que promovem moedas desconhecidas.</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <h2 class="section-title">&#127909; Recursos Úteis no YouTube</h2>
+  <div class="resources-grid">
+    <div class="resource-card">
+      <div class="resource-thumb">&#127909;</div>
+      <div class="resource-body">
+        <h4>O Guia Definitivo para Investir em Cripto em 2025</h4>
+        <a href="https://www.youtube.com/watch?v=T-ntqx1xTA0" target="_blank" rel="noopener">Ver no YouTube</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-thumb">&#128274;</div>
+      <div class="resource-body">
+        <h4>Criptomoedas são seguras?</h4>
+        <a href="https://www.youtube.com/watch?v=68Npxli8xJo" target="_blank" rel="noopener">Ver no YouTube</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-thumb">&#128176;</div>
+      <div class="resource-body">
+        <h4>Melhores Investimentos para 2026</h4>
+        <a href="https://www.youtube.com/watch?v=feNaG7KQJpQ" target="_blank" rel="noopener">Ver no YouTube</a>
+      </div>
+    </div>
+    <div class="resource-card">
+      <div class="resource-thumb">&#128200;</div>
+      <div class="resource-body">
+        <h4>As 10 Dicas para Começar a Investir</h4>
+        <a href="https://www.youtube.com/watch?v=0aPzUskEtXc" target="_blank" rel="noopener">Ver no YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    &#9888;&#65039; <strong>Atenção:</strong> Esta página é apenas informativa. Não constitui aconselhamento financeiro. Invista sempre com responsabilidade.
+  </div>
+
+</div>
+
+<footer id="sobre">
+<p><strong>Finanças Inteligentes</strong></p>
+<p>Conteúdo educativo sobre finanças pessoais para portugueses</p>
+<p style="margin-top:15px;font-size:.85em">© 2024 Finanças Inteligentes. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const COINS = [
+  { id: 'bitcoin',  symbol: 'BTC', icon: '&#8383;',   name: 'Bitcoin'  },
+  { id: 'ethereum', symbol: 'ETH', icon: '&#9954;&#65039;',  name: 'Ethereum' },
+  { id: 'solana',   symbol: 'SOL', icon: '&#9728;&#65039;',  name: 'Solana'   },
+  { id: 'cardano',  symbol: 'ADA', icon: '&#128311;',  name: 'Cardano'  },
+  { id: 'ripple',   symbol: 'XRP', icon: '&#128027;',  name: 'XRP'      }
+];
+
+let chartInstance = null;
+let autoRefreshTimer = null;
+
+function formatEUR(val) {
+  if (val >= 1000) return val.toLocaleString('pt-PT', {minimumFractionDigits:0, maximumFractionDigits:0}) + ' €';
+  if (val >= 1) return val.toLocaleString('pt-PT', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+  return val.toLocaleString('pt-PT', {minimumFractionDigits:4, maximumFractionDigits:4}) + ' €';
+}
+
+function formatChange(ch) {
+  if (ch == null) return { text: 'N/A', cls: 'neutral' };
+  const sign = ch >= 0 ? '+' : '';
+  const cls = ch > 0 ? 'positive' : ch < 0 ? 'negative' : 'neutral';
+  return { text: sign + ch.toFixed(2) + '%', cls };
+}
+
+function nowStr() {
+  return new Date().toLocaleTimeString('pt-PT');
+}
+
+async function fetchCrypto() {
+  const btn = document.getElementById('refreshBtn');
+  btn.disabled = true;
+  btn.textContent = 'A atualizar...';
+
+  const ids = COINS.map(c => c.id).join(',');
+  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=eur&include_24hr_change=true`;
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    const prices = COINS.map(c => data[c.id] ? data[c.id].eur : null);
+    const changes = COINS.map(c => data[c.id] ? data[c.id].eur_24h_change : null);
+    const updatedAt = nowStr();
+
+    // Build cards
+    const container = document.getElementById('cryptoContainer');
+    container.innerHTML = '<div class="crypto-grid">' +
+      COINS.map((c, i) => {
+        const price = prices[i];
+        const ch = formatChange(changes[i]);
+        return `<div class="crypto-card">
+          <div class="crypto-icon">${c.icon}</div>
+          <div class="crypto-name">${c.symbol} &mdash; ${c.name}</div>
+          <div class="crypto-price">${price !== null ? formatEUR(price) : 'N/A'}</div>
+          <span class="crypto-change ${ch.cls}">${ch.text}</span>
+          <div class="last-updated">Atualizado: ${updatedAt}</div>
+        </div>`;
+      }).join('') +
+    '</div>';
+
+    // Update chart
+    renderChart(COINS.map(c => c.symbol), prices.map(p => p || 0));
+
+  } catch (err) {
+    document.getElementById('cryptoContainer').innerHTML =
+      `<div class="error-box">&#10060; Erro ao carregar preços: ${err.message}<br><small>A API da CoinGecko pode estar temporariamente indisponível. Tente novamente em alguns momentos.</small></div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '↻ Atualizar Agora';
+  }
+
+  // Schedule next auto-refresh
+  clearTimeout(autoRefreshTimer);
+  autoRefreshTimer = setTimeout(fetchCrypto, 60000);
+}
+
+function renderChart(labels, prices) {
+  const ctx = document.getElementById('cryptoChart').getContext('2d');
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Preço em EUR',
+        data: prices,
+        backgroundColor: ['#f7931a','#627eea','#9945ff','#0033ad','#00aae4'],
+        borderRadius: 8,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' ' + formatEUR(ctx.parsed.y)
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: v => {
+              if (v >= 1000) return (v/1000).toFixed(0) + 'k €';
+              return v + ' €';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+async function fetchFearGreed() {
+  try {
+    const res = await fetch('https://api.alternative.me/fng/');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    const entry = data.data[0];
+    const val = parseInt(entry.value);
+    const label = entry.value_classification;
+
+    let color, fillColor;
+    if (val <= 25)      { color = '#c0392b'; fillColor = 'linear-gradient(90deg,#e74c3c,#c0392b)'; }
+    else if (val <= 50) { color = '#e67e22'; fillColor = 'linear-gradient(90deg,#f39c12,#e67e22)'; }
+    else if (val <= 75) { color = '#f1c40f'; fillColor = 'linear-gradient(90deg,#f9e14b,#f1c40f)'; }
+    else                { color = '#27ae60'; fillColor = 'linear-gradient(90deg,#2ecc71,#27ae60)'; }
+
+    document.getElementById('fgContainer').innerHTML = `
+      <div class="fg-gauge-wrap">
+        <div class="fg-value" style="color:${color}">${val}</div>
+        <div class="fg-label" style="color:${color}">${label}</div>
+        <div class="fg-bar"><div class="fg-fill" style="width:${val}%;background:${fillColor}"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:.8em;color:#999;margin-top:4px"><span>Medo Extremo</span><span>Ganância Extrema</span></div>
+      </div>
+      <div class="fg-desc">O índice Medo &amp; Ganância mede o sentimento do mercado cripto. Valores baixos indicam medo (possível oportunidade de compra); valores altos indicam ganância (mercado pode estar sobreaquecido).</div>
+    `;
+  } catch (err) {
+    document.getElementById('fgContainer').innerHTML =
+      `<div class="error-box">&#10060; Erro ao carregar índice: ${err.message}</div>`;
+  }
+}
+
+// Initial load
+fetchCrypto();
+fetchFearGreed();
+</script>
+</body>
+</html>
