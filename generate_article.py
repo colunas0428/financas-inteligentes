@@ -8,7 +8,7 @@ from datetime import datetime
 
 def generate_article(topic):
     api_key = os.environ.get('GEMINI_API_KEY', '')
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
     
     prompt = f"""Escreva um artigo completo em portugues brasileiro sobre "{topic}" relacionado a financas pessoais.
 O artigo deve ter exatamente 1000 palavras, ser educativo, pratico e acessivel ao publico brasileiro.
@@ -76,7 +76,7 @@ footer{{background:#1a472a;color:#a8d5b5;padding:20px;text-align:center;border-r
 <div class="card-body">
 <h3>{topic}</h3>
 <p>Artigo publicado em {date_str}. Aprenda tudo sobre {topic.lower()} e melhore suas financas.</p>
-<a href="/{filename}">Ler Artigo</a>
+<a href="/financas-inteligentes/{filename}">Ler Artigo</a>
 </div>
 </div>"""
         
