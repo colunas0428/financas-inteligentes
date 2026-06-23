@@ -15,7 +15,7 @@ def generate_article(topic):
     # Try models in order of preference
     models = ['gemini-1.5-flash', 'gemini-1.5-flash-latest', 'gemini-2.0-flash']
     
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{models[0]}:generateContent?key={api_key}"
+url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
     
     prompt = f"""Escreve um artigo completo em portugues europeu sobre "{topic}" relacionado a financas pessoais.
 O artigo deve ter aproximadamente 1000 palavras, ser educativo, pratico e acessivel.
