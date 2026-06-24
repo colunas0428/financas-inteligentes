@@ -23,17 +23,21 @@ nav a:hover{background:#2d6a4f;color:white}
 .crypto-card .name{font-weight:600;color:#1a472a;margin-bottom:5px}
 .crypto-card .price{font-size:1.2em;font-weight:700;color:#333}
 .crypto-card .change{font-size:.85em;margin-top:5px;font-weight:600}
-.up{color:#16a34a}
-.down{color:#dc2626}
-.loading{color:#888;font-style:italic}
+.up{color:#16a34a}.down{color:#dc2626}.loading{color:#888;font-style:italic}
 .tv-widget{margin-bottom:15px}
+table{width:100%;border-collapse:collapse;font-size:.9em}
+thead tr{background:#1a472a;color:white}
+th{padding:10px;text-align:left}
+td{padding:10px;border-bottom:1px solid #f0f0f0}
+tr:nth-child(even){background:#f9f9f9}
+.dica{background:#e8f5e9;border-left:4px solid #2d6a4f;padding:15px 20px;margin-top:20px;border-radius:0 8px 8px 0}
 footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:20px;margin-top:20px}
 </style>
 </head>
 <body>
 <header>
 <h1>📈 Mercados Financeiros</h1>
-<p>Dados em tempo real — bolsa, crypto, commodities e índices mundiais</p>
+<p>Dados em tempo real — bolsa, crypto, commodities, poupança e índices mundiais</p>
 </header>
 <nav>
 <a href="/financas-inteligentes/">Início</a>
@@ -46,43 +50,19 @@ footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:20px;margin-to
 <!-- CRYPTO -->
 <div class="section">
 <h2>🪙 Criptomoedas ao Vivo (EUR)</h2>
-<div class="crypto-grid" id="crypto-grid">
-<div class="loading">A carregar preços...</div>
-</div>
+<div class="crypto-grid" id="crypto-grid"><div class="loading">A carregar preços...</div></div>
 </div>
 
 <!-- BOLSA LISBOA -->
 <div class="section">
 <h2>🇵🇹 Bolsa de Lisboa — PSI ao Vivo</h2>
 <div class="tv-widget">
-<!-- TradingView Ticker Tape Widget BEGIN -->
 <div class="tradingview-widget-container">
 <div class="tradingview-widget-container__widget"></div>
 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-{
-  "symbols": [
-    {"proName": "EURONEXT:GALP", "title": "Galp"},
-    {"proName": "EURONEXT:JMT", "title": "Jeronimo Martins"},
-    {"proName": "EURONEXT:EDP", "title": "EDP"},
-    {"proName": "EURONEXT:BCP", "title": "BCP"},
-    {"proName": "EURONEXT:NVG", "title": "Navigator"},
-    {"proName": "EURONEXT:SEM", "title": "Semapa"},
-    {"proName": "EURONEXT:ALTR", "title": "Altri"},
-    {"proName": "EURONEXT:MOTA", "title": "Mota-Engil"},
-    {"proName": "EURONEXT:CTT", "title": "CTT"},
-    {"proName": "EURONEXT:SON", "title": "Sonae"},
-    {"proName": "EURONEXT:EDPR", "title": "EDP Renovaveis"},
-    {"proName": "EURONEXT:REN", "title": "REN"}
-  ],
-  "showSymbolLogo": true,
-  "colorTheme": "light",
-  "isTransparent": false,
-  "displayMode": "adaptive",
-  "locale": "pt"
-}
+{"symbols":[{"proName":"EURONEXT:GALP","title":"Galp"},{"proName":"EURONEXT:JMT","title":"Jeronimo Martins"},{"proName":"EURONEXT:EDP","title":"EDP"},{"proName":"EURONEXT:BCP","title":"BCP"},{"proName":"EURONEXT:NVG","title":"Navigator"},{"proName":"EURONEXT:SEM","title":"Semapa"},{"proName":"EURONEXT:ALTR","title":"Altri"},{"proName":"EURONEXT:MOTA","title":"Mota-Engil"},{"proName":"EURONEXT:CTT","title":"CTT"},{"proName":"EURONEXT:SON","title":"Sonae"},{"proName":"EURONEXT:EDPR","title":"EDP Renovaveis"},{"proName":"EURONEXT:REN","title":"REN"}],"showSymbolLogo":true,"colorTheme":"light","isTransparent":false,"displayMode":"adaptive","locale":"pt"}
 </script>
 </div>
-<!-- TradingView Ticker Tape Widget END -->
 </div>
 </div>
 
@@ -90,26 +70,12 @@ footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:20px;margin-to
 <div class="section">
 <h2>📊 Gráfico PSI 20 Interativo</h2>
 <div class="tv-widget">
-<!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
 <div class="tradingview-widget-container__widget"></div>
 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-{
-  "width": "100%",
-  "height": 450,
-  "symbol": "INDEX:PSI20",
-  "interval": "D",
-  "timezone": "Europe/Lisbon",
-  "theme": "light",
-  "style": "1",
-  "locale": "pt",
-  "allow_symbol_change": true,
-  "calendar": false,
-  "support_host": "https://www.tradingview.com"
-}
+{"width":"100%","height":450,"symbol":"INDEX:PSI20","interval":"D","timezone":"Europe/Lisbon","theme":"light","style":"1","locale":"pt","allow_symbol_change":true,"calendar":false,"support_host":"https://www.tradingview.com"}
 </script>
 </div>
-<!-- TradingView Widget END -->
 </div>
 </div>
 
@@ -117,35 +83,12 @@ footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:20px;margin-to
 <div class="section">
 <h2>🌍 Índices Mundiais</h2>
 <div class="tv-widget">
-<!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
 <div class="tradingview-widget-container__widget"></div>
 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-{
-  "width": "100%",
-  "height": 350,
-  "symbolsGroups": [
-    {
-      "name": "Indices",
-      "symbols": [
-        {"name": "INDEX:PSI20", "displayName": "PSI 20 (Portugal)"},
-        {"name": "XETR:DAX", "displayName": "DAX (Alemanha)"},
-        {"name": "INDEX:CAC40", "displayName": "CAC 40 (Franca)"},
-        {"name": "FOREXCOM:SPXUSD", "displayName": "S&P 500 (EUA)"},
-        {"name": "FOREXCOM:NSXUSD", "displayName": "Nasdaq (EUA)"},
-        {"name": "FOREXCOM:JPN225", "displayName": "Nikkei 225 (Japao)"},
-        {"name": "FOREXCOM:UKXGBP", "displayName": "FTSE 100 (UK)"},
-        {"name": "EURONEXT:CSX", "displayName": "Euro Stoxx 50"}
-      ]
-    }
-  ],
-  "colorTheme": "light",
-  "isTransparent": false,
-  "locale": "pt"
-}
+{"width":"100%","height":350,"symbolsGroups":[{"name":"Indices","symbols":[{"name":"INDEX:PSI20","displayName":"PSI 20 (Portugal)"},{"name":"XETR:DAX","displayName":"DAX (Alemanha)"},{"name":"INDEX:CAC40","displayName":"CAC 40 (Franca)"},{"name":"FOREXCOM:SPXUSD","displayName":"S&P 500 (EUA)"},{"name":"FOREXCOM:NSXUSD","displayName":"Nasdaq (EUA)"},{"name":"FOREXCOM:JPN225","displayName":"Nikkei 225 (Japao)"},{"name":"FOREXCOM:UKXGBP","displayName":"FTSE 100 (UK)"},{"name":"EURONEXT:CSX","displayName":"Euro Stoxx 50"}]}],"colorTheme":"light","isTransparent":false,"locale":"pt"}
 </script>
 </div>
-<!-- TradingView Widget END -->
 </div>
 </div>
 
@@ -153,35 +96,12 @@ footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:20px;margin-to
 <div class="section">
 <h2>🏅 Commodities — Ouro, Petróleo, Prata e mais</h2>
 <div class="tv-widget">
-<!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
 <div class="tradingview-widget-container__widget"></div>
 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-{
-  "width": "100%",
-  "height": 400,
-  "symbolsGroups": [
-    {
-      "name": "Commodities",
-      "symbols": [
-        {"name": "TVC:GOLD", "displayName": "Ouro (XAU/USD)"},
-        {"name": "TVC:SILVER", "displayName": "Prata (XAG/USD)"},
-        {"name": "TVC:USOIL", "displayName": "Petroleo WTI"},
-        {"name": "TVC:UKOIL", "displayName": "Petroleo Brent"},
-        {"name": "TVC:COPPER", "displayName": "Cobre"},
-        {"name": "TVC:NATURALGAS", "displayName": "Gas Natural"},
-        {"name": "TVC:WHEAT", "displayName": "Trigo"},
-        {"name": "INDEX:BTCUSD", "displayName": "Bitcoin"}
-      ]
-    }
-  ],
-  "colorTheme": "light",
-  "isTransparent": false,
-  "locale": "pt"
-}
+{"width":"100%","height":400,"symbolsGroups":[{"name":"Commodities","symbols":[{"name":"TVC:GOLD","displayName":"Ouro (XAU/USD)"},{"name":"TVC:SILVER","displayName":"Prata (XAG/USD)"},{"name":"TVC:USOIL","displayName":"Petroleo WTI"},{"name":"TVC:UKOIL","displayName":"Petroleo Brent"},{"name":"TVC:COPPER","displayName":"Cobre"},{"name":"TVC:NATURALGAS","displayName":"Gas Natural"},{"name":"TVC:WHEAT","displayName":"Trigo"},{"name":"INDEX:BTCUSD","displayName":"Bitcoin"}]}],"colorTheme":"light","isTransparent":false,"locale":"pt"}
 </script>
 </div>
-<!-- TradingView Widget END -->
 </div>
 </div>
 
@@ -189,46 +109,56 @@ footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:20px;margin-to
 <div class="section">
 <h2>💱 Câmbios — EUR/USD e principais pares</h2>
 <div class="tv-widget">
-<!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
 <div class="tradingview-widget-container__widget"></div>
 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-{
-  "width": "100%",
-  "height": 350,
-  "symbolsGroups": [
-    {
-      "name": "Forex",
-      "symbols": [
-        {"name": "FX:EURUSD", "displayName": "EUR/USD"},
-        {"name": "FX:EURGBP", "displayName": "EUR/GBP"},
-        {"name": "FX:EURJPY", "displayName": "EUR/JPY"},
-        {"name": "FX:EURBRL", "displayName": "EUR/BRL"},
-        {"name": "FX:GBPUSD", "displayName": "GBP/USD"},
-        {"name": "FX:USDJPY", "displayName": "USD/JPY"}
-      ]
-    }
-  ],
-  "colorTheme": "light",
-  "isTransparent": false,
-  "locale": "pt"
-}
+{"width":"100%","height":350,"symbolsGroups":[{"name":"Forex","symbols":[{"name":"FX:EURUSD","displayName":"EUR/USD"},{"name":"FX:EURGBP","displayName":"EUR/GBP"},{"name":"FX:EURJPY","displayName":"EUR/JPY"},{"name":"FX:EURBRL","displayName":"EUR/BRL"},{"name":"FX:GBPUSD","displayName":"GBP/USD"},{"name":"FX:USDJPY","displayName":"USD/JPY"}]}],"colorTheme":"light","isTransparent":false,"locale":"pt"}
 </script>
 </div>
-<!-- TradingView Widget END -->
 </div>
+</div>
+
+<!-- CERTIFICADOS DE AFORRO -->
+<div class="section">
+<h2>🏛️ Certificados de Aforro — Portugal</h2>
+<p style="color:#555;font-size:.95em;margin-bottom:15px">Produtos de poupança emitidos pelo Estado Português, garantidos pelo Governo. Subscrição a partir de <strong>€100</strong>. Remuneração indexada à Euribor a 3 meses + spread.</p>
+<table>
+<thead><tr><th>Produto</th><th>Montante Mín.</th><th>Garantia Estado</th><th>Liquidez</th><th>Rentabilidade Est. 2025</th></tr></thead>
+<tbody>
+<tr><td><strong>Certificados de Aforro</strong></td><td>€100</td><td style="color:#16a34a">✅ Sim</td><td>Após 3 meses</td><td>~2,5–3,5%</td></tr>
+<tr><td><strong>Certificados do Tesouro</strong></td><td>€1.000</td><td style="color:#16a34a">✅ Sim</td><td>Após 1 ano</td><td>~2,0–3,0%</td></tr>
+<tr><td><strong>Depósito a Prazo (banco)</strong></td><td>€500</td><td style="color:#16a34a">✅ Até €100k</td><td>No vencimento</td><td>~1,5–2,5%</td></tr>
+<tr><td><strong>Seguro de Capitalização</strong></td><td>€1.000</td><td style="color:#f97316">⚠️ Parcial</td><td>Variável</td><td>~2,0–4,0%</td></tr>
+<tr><td><strong>ETF Obrigações</strong></td><td>~€10</td><td style="color:#dc2626">❌ Não</td><td>Diária</td><td>~2,0–5,0%</td></tr>
+</tbody>
+</table>
+<p style="font-size:.8em;color:#888;margin-top:8px">* Consulte sempre os termos atuais em <strong>aforronet.igcp.pt</strong></p>
+</div>
+
+<!-- SEGUROS DE CAPITALIZAÇÃO -->
+<div class="section">
+<h2>🛡️ Seguros de Capitalização</h2>
+<p style="color:#555;font-size:.95em;margin-bottom:15px">Produtos financeiros de médio/longo prazo que combinam poupança e seguro de vida (Fidelidade, Tranquilidade, Allianz, Ocidental). Oferecem capital garantido ou participação nos resultados.</p>
+<table>
+<thead><tr><th>Seguradora</th><th>Produto</th><th>Capital Garantido</th><th>Taxa Garantida 2025</th><th>Participação Resultados</th></tr></thead>
+<tbody>
+<tr><td><strong>Fidelidade</strong></td><td>Capitalização PPR</td><td style="color:#16a34a">✅</td><td>~1,50%</td><td>Sim (~1–2%)</td></tr>
+<tr><td><strong>Tranquilidade</strong></td><td>Poupança Garantida</td><td style="color:#16a34a">✅</td><td>~1,25%</td><td>Sim (~0,5–1,5%)</td></tr>
+<tr><td><strong>Allianz</strong></td><td>Invest Mais</td><td style="color:#16a34a">✅</td><td>~1,00%</td><td>Sim (~1–2%)</td></tr>
+<tr><td><strong>Ocidental</strong></td><td>PPR Ativo</td><td style="color:#f97316">⚠️ Parcial</td><td>Variável</td><td>Sim (mercado)</td></tr>
+</tbody>
+</table>
+<div class="dica"><strong>💡 PPR:</strong> Os Planos Poupança Reforma são uma forma de seguro de capitalização com benefícios fiscais — podes deduzir até €400/ano no IRS (20% das entregas). Ideal para planeamento da reforma.</div>
+<p style="font-size:.8em;color:#888;margin-top:10px">* Valores indicativos baseados em dados públicos de 2025. Consulte sempre a seguradora para condições atuais.</p>
 </div>
 
 <!-- FEAR & GREED -->
 <div class="section">
 <h2>😱 Fear &amp; Greed Index — Sentimento do Mercado Crypto</h2>
-<div id="fear-greed" style="text-align:center;padding:20px">
-<div class="loading">A carregar índice...</div>
-</div>
+<div id="fear-greed" style="text-align:center;padding:20px"><div class="loading">A carregar índice...</div></div>
 </div>
 
-</div><!-- /container -->
-
+</div>
 <footer>
 <p>Dados fornecidos por TradingView e CoinGecko &bull; Atualização automática &bull; &copy; 2025 Finanças Inteligentes</p>
 <p style="font-size:.8em;margin-top:5px;opacity:.7">Os dados são informativos e não constituem aconselhamento financeiro.</p>
@@ -249,11 +179,8 @@ async function loadCrypto() {
       const arrow = change >= 0 ? '▲' : '▼';
       grid.innerHTML += '<div class="crypto-card"><div class="name">' + names[id] + '</div><div class="price">€' + vals.eur.toLocaleString('pt-PT') + '</div><div class="change ' + cls + '">' + arrow + ' ' + change + '%</div></div>';
     }
-  } catch(e) {
-    document.getElementById('crypto-grid').innerHTML = '<div class="loading">Erro ao carregar dados crypto.</div>';
-  }
+  } catch(e) { document.getElementById('crypto-grid').innerHTML = '<div class="loading">Erro ao carregar dados.</div>'; }
 }
-
 async function loadFearGreed() {
   try {
     const r = await fetch('https://api.alternative.me/fng/?limit=1');
@@ -262,14 +189,9 @@ async function loadFearGreed() {
     const label = data.data[0].value_classification;
     const color = val < 25 ? '#dc2626' : val < 45 ? '#f97316' : val < 55 ? '#eab308' : val < 75 ? '#84cc16' : '#16a34a';
     document.getElementById('fear-greed').innerHTML = '<div style="font-size:3em;font-weight:700;color:' + color + '">' + val + '</div><div style="font-size:1.2em;color:' + color + ';margin-top:5px">' + label + '</div><div style="color:#888;font-size:.9em;margin-top:10px">Escala 0 (Medo Extremo) → 100 (Ganância Extrema)</div>';
-  } catch(e) {
-    document.getElementById('fear-greed').innerHTML = '<div class="loading">Erro ao carregar índice.</div>';
-  }
+  } catch(e) { document.getElementById('fear-greed').innerHTML = '<div class="loading">Erro ao carregar índice.</div>'; }
 }
-
-loadCrypto();
-loadFearGreed();
-setInterval(loadCrypto, 60000);
+loadCrypto(); loadFearGreed(); setInterval(loadCrypto, 60000);
 </script>
 </body>
 </html>
