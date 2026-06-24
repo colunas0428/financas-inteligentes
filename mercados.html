@@ -56,14 +56,12 @@ footer{background:#1a472a;color:#a8d5b5;text-align:center;padding:20px;margin-to
 <!-- BOLSA LISBOA -->
 <div class="section">
 <h2>🇵🇹 Bolsa de Lisboa — PSI ao Vivo</h2>
-<div class="tv-widget">
-<div class="tradingview-widget-container">
-<div class="tradingview-widget-container__widget"></div>
-<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-{"symbols":[{"proName":"EURONEXT:GALP","title":"Galp"},{"proName":"EURONEXT:JMT","title":"Jeronimo Martins"},{"proName":"EURONEXT:EDP","title":"EDP"},{"proName":"EURONEXT:BCP","title":"BCP"},{"proName":"EURONEXT:NVG","title":"Navigator"},{"proName":"EURONEXT:SEM","title":"Semapa"},{"proName":"EURONEXT:ALTR","title":"Altri"},{"proName":"EURONEXT:MOTA","title":"Mota-Engil"},{"proName":"EURONEXT:CTT","title":"CTT"},{"proName":"EURONEXT:SON","title":"Sonae"},{"proName":"EURONEXT:EDPR","title":"EDP Renovaveis"},{"proName":"EURONEXT:REN","title":"REN"}],"showSymbolLogo":true,"colorTheme":"light","isTransparent":false,"displayMode":"adaptive","locale":"pt"}
-</script>
-</div>
-</div>
+<div id="psi-status" style="color:#888;font-size:.85em;margin-bottom:10px">A carregar dados...</div>
+<table id="psi-table">
+<thead><tr><th>Empresa</th><th>Preço (€)</th><th>Variação</th><th>Var. %</th><th>Volume</th></tr></thead>
+<tbody id="psi-tbody"><tr><td colspan="5" style="text-align:center;color:#888;padding:20px">A carregar...</td></tr></tbody>
+</table>
+<p style="font-size:.78em;color:#aaa;margin-top:8px">Fonte: Yahoo Finance · Atualização a cada 2 minutos · Dados com atraso de 15 min fora de horário de mercado</p>
 </div>
 
 <!-- GRAFICO PSI20 -->
@@ -192,6 +190,50 @@ async function loadFearGreed() {
   } catch(e) { document.getElementById('fear-greed').innerHTML = '<div class="loading">Erro ao carregar índice.</div>'; }
 }
 loadCrypto(); loadFearGreed(); setInterval(loadCrypto, 60000);
+
+const PSI_STOCKS = [
+  {symbol:'GALP.LS',name:'Galp'},
+  {symbol:'EDP.LS',name:'EDP'},
+  {symbol:'JMT.LS',name:'Jerónimo Martins'},
+  {symbol:'BCP.LS',name:'BCP Millennium'},
+  {symbol:'NVG.LS',name:'Navigator'},
+  {symbol:'SEM.LS',name:'Semapa'},
+  {symbol:'ALTR.LS',name:'Altri'},
+  {symbol:'MOTA.LS',name:'Mota-Engil'},
+  {symbol:'CTT.LS',name:'CTT'},
+  {symbol:'SON.LS',name:'Sonae'},
+  {symbol:'EDPR.LS',name:'EDP Renováveis'},
+  {symbol:'REN.LS',name:'REN'}
+];
+
+async function loadPSI() {
+  try {
+    const syms = PSI_STOCKS.map(s => s.symbol).join(',');
+    const url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://query1.finance.yahoo.com/v7/finance/quote?symbols=' + syms + '&lang=pt&region=PT');
+    const r = await fetch(url);
+    const data = await r.json();
+    const quotes = data.quoteResponse.result;
+    const tbody = document.getElementById('psi-tbody');
+    tbody.innerHTML = '';
+    quotes.forEach(q => {
+      const stock = PSI_STOCKS.find(s => s.symbol === q.symbol);
+      const name = stock ? stock.name : q.shortName;
+      const price = q.regularMarketPrice ? q.regularMarketPrice.toFixed(2) : '—';
+      const change = q.regularMarketChange ? q.regularMarketChange.toFixed(3) : '—';
+      const changePct = q.regularMarketChangePercent ? q.regularMarketChangePercent.toFixed(2) : '—';
+      const vol = q.regularMarketVolume ? q.regularMarketVolume.toLocaleString('pt-PT') : '—';
+      const isUp = q.regularMarketChange >= 0;
+      const cls = isUp ? 'up' : 'down';
+      const arrow = isUp ? '▲' : '▼';
+      tbody.innerHTML += '<tr><td><strong>' + name + '</strong></td><td>€' + price + '</td><td class="' + cls + '">' + arrow + ' ' + change + '</td><td class="' + cls + '">' + changePct + '%</td><td style="color:#888">' + vol + '</td></tr>';
+    });
+    document.getElementById('psi-status').textContent = 'Última atualização: ' + new Date().toLocaleTimeString('pt-PT');
+  } catch(e) {
+    document.getElementById('psi-tbody').innerHTML = '<tr><td colspan="5" style="text-align:center;color:#c00;padding:20px">Erro ao carregar dados. Tenta novamente.</td></tr>';
+    document.getElementById('psi-status').textContent = 'Erro de ligação';
+  }
+}
+loadPSI(); setInterval(loadPSI, 120000);
 </script>
 </body>
 </html>
