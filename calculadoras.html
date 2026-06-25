@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadoras Financeiras - Finanças Inteligentes</title>
+  <meta name="description" content="Calculadoras financeiras gratuitas - juros compostos, poupança e amortização de dívida" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DK6M614ME"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5DK6M614ME');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f7f4;
+      color: #1a2e1a;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    header {
+      background: #1a472a;
+      padding: 0 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.35);
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      height: 56px;
+    }
+    .nav-brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #a8e6b8;
+      text-decoration: none;
+      margin-right: auto;
+      letter-spacing: .3px;
+    }
+    nav a {
+      color: #d4edda;
+      text-decoration: none;
+      padding: .4rem .85rem;
+      border-radius: 4px;
+      font-size: .92rem;
+      transition: background .2s, color .2s;
+    }
+    nav a:hover, nav a.active {
+      background: #2d6a4f;
+      color: #fff;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+    }
+    .hero h1 { font-size: 2rem; margin-bottom: .6rem; }
+    .hero p  { font-size: 1.05rem; opacity: .85; }
+
+    /* ── MAIN GRID ── */
+    main {
+      max-width: 1100px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(26,71,42,.12);
+      overflow: hidden;
+    }
+    .card-header {
+      background: #2d6a4f;
+      color: #fff;
+      padding: 1.1rem 1.4rem;
+    }
+    .card-header h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: .2rem;
+    }
+    .card-header p {
+      font-size: .82rem;
+      opacity: .85;
+    }
+    .card-body { padding: 1.4rem; }
+
+    /* ── FORM ELEMENTS ── */
+    .field { margin-bottom: 1rem; }
+    .field label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: #2d4a2d;
+      margin-bottom: .3rem;
+    }
+    .field input {
+      width: 100%;
+      padding: .55rem .75rem;
+      border: 1.5px solid #b0c8b0;
+      border-radius: 6px;
+      font-size: .95rem;
+      color: #1a2e1a;
+      transition: border-color .2s;
+      background: #f9fcf9;
+    }
+    .field input:focus {
+      outline: none;
+      border-color: #2d6a4f;
+      background: #fff;
+    }
+
+    button.calc-btn {
+      width: 100%;
+      padding: .65rem;
+      background: #1a472a;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: .4rem;
+      transition: background .2s, transform .1s;
+    }
+    button.calc-btn:hover  { background: #2d6a4f; }
+    button.calc-btn:active { transform: scale(.98); }
+
+    /* ── RESULTS ── */
+    .results {
+      margin-top: 1.1rem;
+      background: #f0f7f0;
+      border-left: 4px solid #2d6a4f;
+      border-radius: 0 7px 7px 0;
+      padding: 1rem 1.1rem;
+      display: none;
+    }
+    .results.show { display: block; }
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: .3rem 0;
+      border-bottom: 1px solid #d4ebd4;
+      font-size: .92rem;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-row .label { color: #2d4a2d; }
+    .result-row .value {
+      font-weight: 700;
+      color: #1a472a;
+      font-size: 1rem;
+    }
+    .result-row .value.highlight {
+      color: #155724;
+      font-size: 1.08rem;
+    }
+    .error-msg {
+      color: #b02a37;
+      font-size: .86rem;
+      margin-top: .5rem;
+      display: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a472a;
+      color: #a8e6b8;
+      text-align: center;
+      padding: 1.4rem 1rem;
+      font-size: .85rem;
+    }
+    footer a { color: #a8e6b8; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.5rem; }
+      nav a { padding: .4rem .55rem; font-size: .82rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav>
+    <a class="nav-brand" href="/financas-inteligentes/">Finanças Inteligentes</a>
+    <a href="/financas-inteligentes/">Início</a>
+    <a href="/financas-inteligentes/articles/index.html">Artigos</a>
+    <a href="/financas-inteligentes/mercados.html">Mercados</a>
+    <a href="/financas-inteligentes/calculadoras.html" class="active">Calculadoras</a>
+    <a href="/financas-inteligentes/sobre.html">Sobre</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Calculadoras Financeiras</h1>
+  <p>Ferramentas gratuitas para tomar decisões financeiras mais inteligentes</p>
+</div>
+
+<!-- CALCULATORS -->
+<main>
+
+  <!-- 1. JUROS COMPOSTOS -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Juros Compostos</h2>
+      <p>Calcule o crescimento do seu investimento ao longo do tempo</p>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label for="jc-capital">Capital Inicial (€)</label>
+        <input type="number" id="jc-capital" min="0" step="any" placeholder="ex: 5000" />
+      </div>
+      <div class="field">
+        <label for="jc-taxa">Taxa Anual (%)</label>
+        <input type="number" id="jc-taxa" min="0" step="any" placeholder="ex: 7" />
+      </div>
+      <div class="field">
+        <label for="jc-anos">Anos</label>
+        <input type="number" id="jc-anos" min="1" step="1" placeholder="ex: 20" />
+      </div>
+      <div class="field">
+        <label for="jc-aportacao">Aportação Mensal (€)</label>
+        <input type="number" id="jc-aportacao" min="0" step="any" placeholder="ex: 200" />
+      </div>
+      <p class="error-msg" id="jc-error">Por favor, preencha todos os campos com valores válidos.</p>
+      <button class="calc-btn" onclick="calcJurosCompostos()">Calcular</button>
+      <div class="results" id="jc-results">
+        <div class="result-row">
+          <span class="label">Montante Final</span>
+          <span class="value highlight" id="jc-final">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Total Investido</span>
+          <span class="value" id="jc-investido">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Lucro Total</span>
+          <span class="value" id="jc-lucro">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CALCULADORA DE POUPANÇA -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Calculadora de Poupança</h2>
+      <p>Descubra quanto precisa de poupar por mês para atingir o seu objetivo</p>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label for="ps-objetivo">Objetivo (€)</label>
+        <input type="number" id="ps-objetivo" min="0" step="any" placeholder="ex: 10000" />
+      </div>
+      <div class="field">
+        <label for="ps-prazo">Prazo (meses)</label>
+        <input type="number" id="ps-prazo" min="1" step="1" placeholder="ex: 24" />
+      </div>
+      <div class="field">
+        <label for="ps-taxa">Taxa Anual (%)</label>
+        <input type="number" id="ps-taxa" min="0" step="any" placeholder="ex: 3" />
+      </div>
+      <p class="error-msg" id="ps-error">Por favor, preencha todos os campos com valores válidos.</p>
+      <button class="calc-btn" onclick="calcPoupanca()">Calcular</button>
+      <div class="results" id="ps-results">
+        <div class="result-row">
+          <span class="label">Poupança Mensal Necessária</span>
+          <span class="value highlight" id="ps-mensal">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Total Poupado</span>
+          <span class="value" id="ps-total">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Ganhos com Juros</span>
+          <span class="value" id="ps-juros">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. AMORTIZAÇÃO DE DÍVIDA -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Amortização de Dívida</h2>
+      <p>Saiba quando ficará livre de dívidas e quanto pagará de juros</p>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label for="ad-divida">Dívida Total (€)</label>
+        <input type="number" id="ad-divida" min="0" step="any" placeholder="ex: 15000" />
+      </div>
+      <div class="field">
+        <label for="ad-taxa">Taxa Mensal (%)</label>
+        <input type="number" id="ad-taxa" min="0" step="any" placeholder="ex: 1.2" />
+      </div>
+      <div class="field">
+        <label for="ad-prestacao">Prestação Mensal (€)</label>
+        <input type="number" id="ad-prestacao" min="0" step="any" placeholder="ex: 350" />
+      </div>
+      <p class="error-msg" id="ad-error">Por favor, preencha todos os campos com valores válidos.</p>
+      <button class="calc-btn" onclick="calcAmortizacao()">Calcular</button>
+      <div class="results" id="ad-results">
+        <div class="result-row">
+          <span class="label">Meses até liquidar</span>
+          <span class="value highlight" id="ad-meses">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Total Pago</span>
+          <span class="value" id="ad-total">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Total de Juros Pagos</span>
+          <span class="value" id="ad-juros">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 <a href="/financas-inteligentes/">Finanças Inteligentes</a> &mdash; Informação financeira para todos</p>
+</footer>
+
+<script>
+  /* ── helpers ── */
+  function fmt(n) {
+    return n.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+  }
+  function showError(id, show) {
+    document.getElementById(id).style.display = show ? 'block' : 'none';
+  }
+  function showResults(id, show) {
+    const el = document.getElementById(id);
+    show ? el.classList.add('show') : el.classList.remove('show');
+  }
+
+  /* ── 1. Juros Compostos ── */
+  function calcJurosCompostos() {
+    const capital    = parseFloat(document.getElementById('jc-capital').value);
+    const taxaAnual  = parseFloat(document.getElementById('jc-taxa').value);
+    const anos       = parseInt(document.getElementById('jc-anos').value, 10);
+    const aportacao  = parseFloat(document.getElementById('jc-aportacao').value) || 0;
+
+    if (isNaN(capital) || isNaN(taxaAnual) || isNaN(anos) || capital < 0 || taxaAnual < 0 || anos < 1) {
+      showError('jc-error', true);
+      showResults('jc-results', false);
+      return;
+    }
+    showError('jc-error', false);
+
+    const taxaMensal = taxaAnual / 100 / 12;
+    const meses = anos * 12;
+    let montante;
+
+    if (taxaMensal === 0) {
+      montante = capital + aportacao * meses;
+    } else {
+      // Capital inicial com juros compostos
+      montante = capital * Math.pow(1 + taxaMensal, meses);
+      // Valor futuro das aportações mensais (anuidade)
+      montante += aportacao * (Math.pow(1 + taxaMensal, meses) - 1) / taxaMensal;
+    }
+
+    const totalInvestido = capital + aportacao * meses;
+    const lucro = montante - totalInvestido;
+
+    document.getElementById('jc-final').textContent    = fmt(montante);
+    document.getElementById('jc-investido').textContent = fmt(totalInvestido);
+    document.getElementById('jc-lucro').textContent    = fmt(lucro);
+    showResults('jc-results', true);
+  }
+
+  /* ── 2. Calculadora de Poupança ── */
+  function calcPoupanca() {
+    const objetivo = parseFloat(document.getElementById('ps-objetivo').value);
+    const prazo    = parseInt(document.getElementById('ps-prazo').value, 10);
+    const taxaAnual = parseFloat(document.getElementById('ps-taxa').value);
+
+    if (isNaN(objetivo) || isNaN(prazo) || isNaN(taxaAnual) || objetivo <= 0 || prazo < 1 || taxaAnual < 0) {
+      showError('ps-error', true);
+      showResults('ps-results', false);
+      return;
+    }
+    showError('ps-error', false);
+
+    const r = taxaAnual / 100 / 12;
+    let mensal;
+
+    if (r === 0) {
+      mensal = objetivo / prazo;
+    } else {
+      // PMT formula: PV of annuity
+      mensal = objetivo * r / (Math.pow(1 + r, prazo) - 1);
+    }
+
+    const totalPoupado = mensal * prazo;
+    const ganhos = objetivo - totalPoupado;
+
+    document.getElementById('ps-mensal').textContent = fmt(mensal);
+    document.getElementById('ps-total').textContent  = fmt(totalPoupado);
+    document.getElementById('ps-juros').textContent  = fmt(Math.abs(ganhos));
+    showResults('ps-results', true);
+  }
+
+  /* ── 3. Amortização de Dívida ── */
+  function calcAmortizacao() {
+    const divida     = parseFloat(document.getElementById('ad-divida').value);
+    const taxaMensal = parseFloat(document.getElementById('ad-taxa').value) / 100;
+    const prestacao  = parseFloat(document.getElementById('ad-prestacao').value);
+
+    if (isNaN(divida) || isNaN(taxaMensal) || isNaN(prestacao) || divida <= 0 || taxaMensal < 0 || prestacao <= 0) {
+      showError('ad-error', true);
+      showResults('ad-results', false);
+      return;
+    }
+
+    // Prestação tem de ser maior que os juros do 1.º mês
+    if (taxaMensal > 0 && prestacao <= divida * taxaMensal) {
+      showError('ad-error', false);
+      document.getElementById('ad-meses').textContent = '—';
+      document.getElementById('ad-total').textContent  = '—';
+      document.getElementById('ad-juros').textContent  = '—';
+      showResults('ad-results', true);
+      document.getElementById('ad-meses').textContent = 'Prestação insuficiente';
+      return;
+    }
+    showError('ad-error', false);
+
+    let saldo = divida;
+    let meses = 0;
+    let totalPago = 0;
+    const MAX_ITER = 1200; // 100 anos
+
+    while (saldo > 0 && meses < MAX_ITER) {
+      const juros = saldo * taxaMensal;
+      const amort = Math.min(prestacao - juros, saldo);
+      saldo -= amort;
+      totalPago += amort + juros;
+      meses++;
+    }
+
+    const totalJuros = totalPago - divida;
+
+    document.getElementById('ad-meses').textContent = meses + (meses === 1 ? ' mês' : ' meses');
+    document.getElementById('ad-total').textContent  = fmt(totalPago);
+    document.getElementById('ad-juros').textContent  = fmt(totalJuros);
+    showResults('ad-results', true);
+  }
+
+  /* Allow Enter key to trigger calculation */
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    const active = document.activeElement;
+    if (!active) return;
+    const card = active.closest('.card-body');
+    if (!card) return;
+    const btn = card.querySelector('.calc-btn');
+    if (btn) btn.click();
+  });
+</script>
+</body>
+</html>
