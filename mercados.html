@@ -207,12 +207,28 @@ const PSI_STOCKS = [
   {symbol:'REN.LS',name:'REN'}
 ];
 
+async function fetchYahoo(syms) {
+  const yahooUrl = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=' + syms + '&lang=pt&region=PT';
+  const proxies = [
+    'https://corsproxy.io/?' + encodeURIComponent(yahooUrl),
+    'https://api.allorigins.win/raw?url=' + encodeURIComponent(yahooUrl),
+    'https://thingproxy.freeboard.io/fetch/' + yahooUrl,
+  ];
+  for (const proxy of proxies) {
+    try {
+      const r = await fetch(proxy, {signal: AbortSignal.timeout(8000)});
+      if (!r.ok) continue;
+      const data = await r.json();
+      if (data.quoteResponse && data.quoteResponse.result && data.quoteResponse.result.length > 0) return data;
+    } catch(e) { continue; }
+  }
+  throw new Error('Todos os proxies falharam');
+}
+
 async function loadPSI() {
   try {
     const syms = PSI_STOCKS.map(s => s.symbol).join(',');
-    const url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://query1.finance.yahoo.com/v7/finance/quote?symbols=' + syms + '&lang=pt&region=PT');
-    const r = await fetch(url);
-    const data = await r.json();
+    const data = await fetchYahoo(syms);
     const quotes = data.quoteResponse.result;
     const tbody = document.getElementById('psi-tbody');
     tbody.innerHTML = '';
