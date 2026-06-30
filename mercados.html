@@ -207,7 +207,7 @@ loadCrypto(); loadFearGreed(); setInterval(loadCrypto, 60000);
 
 async function loadPSI() {
   try {
-    const r = await fetch('/financas-inteligentes/data/psi.json?t=' + Date.now());
+    const r = await fetch('https://colunas0428.github.io/financas-inteligentes/data/psi.json?t=' + Date.now());
     const data = await r.json();
     const tbody = document.getElementById('psi-tbody');
     tbody.innerHTML = '';
