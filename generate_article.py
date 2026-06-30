@@ -17,7 +17,7 @@ def generate_article(topic):
     prompt = "Escreve um artigo completo em portugues europeu sobre \"" + topic + "\" relacionado a financas pessoais. O artigo deve ter aproximadamente 1000 palavras, ser educativo, pratico e acessivel. Inclui: titulo principal, introducao, 3-4 seccoes com subtitulos, dicas praticas e conclusao. Formata em HTML com tags h1, h2, p, ul, li. Usa linguagem amigavel e motivadora. Nao incluas tags html, head, body ou DOCTYPE - apenas o conteudo interno."
 
     payload = {
-        "model": "llama-3.1-70b-versatile",
+        "model": "llama-3.3-70b-versatile",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.7,
         "max_tokens": 2048
