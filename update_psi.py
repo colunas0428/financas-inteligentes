@@ -21,15 +21,54 @@ STOCKS = [
 
 def fetch_psi():
     symbols = ','.join(s['symbol'] for s in STOCKS)
-    url = f'https://query1.finance.yahoo.com/v7/finance/quote?symbols={symbols}&lang=pt&region=PT'
-    headers = {'User-Agent': 'Mozilla/5.0'}
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json',
+    }
 
-    try:
-        r = requests.get(url, headers=headers, timeout=30)
-        data = r.json()
-        quotes = data['quoteResponse']['result']
-    except Exception as e:
-        print(f'Error fetching data: {e}')
+    # Try v8 endpoint first, then v7 as fallback
+    urls = [
+        f'https://query2.finance.yahoo.com/v8/finance/spark?symbols={symbols}&range=1d&interval=5m',
+        f'https://query1.finance.yahoo.com/v7/finance/quote?symbols={symbols}&lang=pt&region=PT',
+        f'https://query2.finance.yahoo.com/v7/finance/quote?symbols={symbols}&lang=pt&region=PT',
+    ]
+
+    quotes = None
+    for url in urls:
+        try:
+            r = requests.get(url, headers=headers, timeout=30)
+            print(f'Trying {url[:60]}... status={r.status_code}')
+            data = r.json()
+            if 'quoteResponse' in data and data['quoteResponse']['result']:
+                quotes = data['quoteResponse']['result']
+                print(f'Got {len(quotes)} quotes')
+                break
+        except Exception as e:
+            print(f'Error with {url[:60]}: {e}')
+            continue
+
+    if not quotes:
+        # Try alternative: fetch each stock individually
+        quotes = []
+        for s in STOCKS:
+            try:
+                url = f'https://query1.finance.yahoo.com/v8/finance/chart/{s["symbol"]}?interval=1d&range=1d'
+                r = requests.get(url, headers=headers, timeout=15)
+                data = r.json()
+                meta = data['chart']['result'][0]['meta']
+                quotes.append({
+                    'symbol': s['symbol'],
+                    'regularMarketPrice': meta.get('regularMarketPrice'),
+                    'regularMarketChange': meta.get('regularMarketPrice', 0) - meta.get('previousClose', 0),
+                    'regularMarketChangePercent': ((meta.get('regularMarketPrice', 0) - meta.get('previousClose', 1)) / meta.get('previousClose', 1)) * 100,
+                    'regularMarketVolume': None,
+                })
+                print(f"Got {s['symbol']}: {meta.get('regularMarketPrice')}")
+            except Exception as e:
+                print(f"Error fetching {s['symbol']}: {e}")
+
+    if not quotes:
+        print('All endpoints failed')
         return None
 
     name_map = {s['symbol']: s['name'] for s in STOCKS}
@@ -39,7 +78,7 @@ def fetch_psi():
         price = q.get('regularMarketPrice')
         change = q.get('regularMarketChange')
         pct = q.get('regularMarketChangePercent')
-        volume = q.get('regularMarketVolume')
+        volume = q.get('regularMarketVolume') or q.get('volume')
         result.append({
             'symbol': sym,
             'name': name_map.get(sym, sym),
