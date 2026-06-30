@@ -1,0 +1,35 @@
+name: Update PSI Stock Data
+
+on:
+  schedule:
+    - cron: '*/30 7-17 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  update-psi:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Fetch PSI data
+      run: python update_psi.py
+
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/psi.json
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update PSI data: $(date '+%Y-%m-%d %H:%M')"
+        git push
