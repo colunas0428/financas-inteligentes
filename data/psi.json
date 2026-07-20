@@ -1,20 +1,20 @@
 {
-  "updated": "2026-07-20T15:31:18Z",
+  "updated": "2026-07-20T18:07:49Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 19.315,
-      "change": 19.315,
-      "changePct": 1831.5,
+      "price": 19.295,
+      "change": 19.295,
+      "changePct": 1829.5,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.541,
-      "change": 4.541,
-      "changePct": 354.1,
+      "price": 4.545,
+      "change": 4.545,
+      "changePct": 354.5,
       "volume": null
     },
     {
@@ -36,49 +36,49 @@
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.166,
-      "change": 3.166,
-      "changePct": 216.6,
+      "price": 3.164,
+      "change": 3.164,
+      "changePct": 216.4,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 20.7,
-      "change": 20.7,
-      "changePct": 1970.0,
+      "price": 20.65,
+      "change": 20.65,
+      "changePct": 1965.0,
       "volume": null
     },
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.645,
-      "change": 4.645,
-      "changePct": 364.5,
+      "price": 4.67,
+      "change": 4.67,
+      "changePct": 367.0,
       "volume": null
     },
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 5.79,
-      "change": 5.79,
-      "changePct": 479.0,
+      "price": 5.755,
+      "change": 5.755,
+      "changePct": 475.5,
       "volume": null
     },
     {
       "symbol": "SON.LS",
       "name": "Sonae",
-      "price": 2.06,
-      "change": 2.06,
-      "changePct": 106.0,
+      "price": 2.055,
+      "change": 2.055,
+      "changePct": 105.5,
       "volume": null
     },
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.98,
-      "change": 13.98,
-      "changePct": 1298.0,
+      "price": 13.92,
+      "change": 13.92,
+      "changePct": 1292.0,
       "volume": null
     }
   ]
