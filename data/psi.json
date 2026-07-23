@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-23T15:32:20Z",
+  "updated": "2026-07-23T17:26:36Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 20.72,
-      "change": 20.72,
-      "changePct": 1972.0,
+      "price": 20.96,
+      "change": 20.96,
+      "changePct": 1996.0,
       "volume": null
     },
     {
@@ -20,33 +20,33 @@
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 16.85,
-      "change": 16.85,
-      "changePct": 1585.0,
+      "price": 16.81,
+      "change": 16.81,
+      "changePct": 1581.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.053,
-      "change": 1.053,
-      "changePct": 5.3,
+      "price": 1.051,
+      "change": 1.051,
+      "changePct": 5.1,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.148,
-      "change": 3.148,
-      "changePct": 214.8,
+      "price": 3.134,
+      "change": 3.134,
+      "changePct": 213.4,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 20.35,
-      "change": 20.35,
-      "changePct": 1935.0,
+      "price": 20.25,
+      "change": 20.25,
+      "changePct": 1925.0,
       "volume": null
     },
     {
@@ -60,25 +60,25 @@
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 5.915,
-      "change": 5.915,
-      "changePct": 491.5,
+      "price": 5.925,
+      "change": 5.925,
+      "changePct": 492.5,
       "volume": null
     },
     {
       "symbol": "SON.LS",
       "name": "Sonae",
-      "price": 2.04,
-      "change": 2.04,
-      "changePct": 104.0,
+      "price": 2.045,
+      "change": 2.045,
+      "changePct": 104.5,
       "volume": null
     },
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 14.08,
-      "change": 14.08,
-      "changePct": 1308.0,
+      "price": 14.13,
+      "change": 14.13,
+      "changePct": 1313.0,
       "volume": null
     }
   ]
