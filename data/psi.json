@@ -1,44 +1,44 @@
 {
-  "updated": "2026-07-24T11:18:21Z",
+  "updated": "2026-07-24T13:00:18Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 20.37,
-      "change": 20.37,
-      "changePct": 1937.0,
+      "price": 20.38,
+      "change": 20.38,
+      "changePct": 1938.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.615,
-      "change": 4.615,
-      "changePct": 361.5,
+      "price": 4.606,
+      "change": 4.606,
+      "changePct": 360.6,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 16.83,
-      "change": 16.83,
-      "changePct": 1583.0,
+      "price": 16.77,
+      "change": 16.77,
+      "changePct": 1577.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.069,
-      "change": 1.069,
-      "changePct": 6.85,
+      "price": 1.072,
+      "change": 1.072,
+      "changePct": 7.2,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.144,
-      "change": 3.144,
-      "changePct": 214.4,
+      "price": 3.146,
+      "change": 3.146,
+      "changePct": 214.6,
       "volume": null
     },
     {
@@ -52,25 +52,25 @@
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.715,
-      "change": 4.715,
-      "changePct": 371.5,
+      "price": 4.705,
+      "change": 4.705,
+      "changePct": 370.5,
       "volume": null
     },
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 5.97,
-      "change": 5.97,
-      "changePct": 497.0,
+      "price": 5.94,
+      "change": 5.94,
+      "changePct": 494.0,
       "volume": null
     },
     {
       "symbol": "SON.LS",
       "name": "Sonae",
-      "price": 2.045,
-      "change": 2.045,
-      "changePct": 104.5,
+      "price": 2.035,
+      "change": 2.035,
+      "changePct": 103.5,
       "volume": null
     },
     {
