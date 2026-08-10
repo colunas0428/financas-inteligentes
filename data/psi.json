@@ -1,60 +1,60 @@
 {
-  "updated": "2026-08-10T10:19:53Z",
+  "updated": "2026-08-10T11:30:51Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 19.865,
-      "change": 19.865,
-      "changePct": 1886.5,
+      "price": 19.885,
+      "change": 19.885,
+      "changePct": 1888.5,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.479,
-      "change": 4.479,
-      "changePct": 347.9,
+      "price": 4.491,
+      "change": 4.491,
+      "changePct": 349.1,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 17.44,
-      "change": 17.44,
-      "changePct": 1644.0,
+      "price": 17.46,
+      "change": 17.46,
+      "changePct": 1646.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.091,
-      "change": 1.091,
-      "changePct": 9.1,
+      "price": 1.092,
+      "change": 1.092,
+      "changePct": 9.2,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.268,
-      "change": 3.268,
-      "changePct": 226.8,
+      "price": 3.28,
+      "change": 3.28,
+      "changePct": 228.0,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 20.25,
-      "change": 20.25,
-      "changePct": 1925.0,
+      "price": 20.2,
+      "change": 20.2,
+      "changePct": 1920.0,
       "volume": null
     },
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.75,
-      "change": 4.75,
-      "changePct": 375.0,
+      "price": 4.745,
+      "change": 4.745,
+      "changePct": 374.5,
       "volume": null
     },
     {
@@ -76,9 +76,9 @@
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.36,
-      "change": 13.36,
-      "changePct": 1236.0,
+      "price": 13.39,
+      "change": 13.39,
+      "changePct": 1239.0,
       "volume": null
     }
   ]
