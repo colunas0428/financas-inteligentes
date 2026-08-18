@@ -1,60 +1,60 @@
 {
-  "updated": "2026-08-18T14:36:47Z",
+  "updated": "2026-08-18T15:35:03Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 21.49,
-      "change": 21.49,
-      "changePct": 2049.0,
+      "price": 21.4,
+      "change": 21.4,
+      "changePct": 2040.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.65,
-      "change": 4.65,
-      "changePct": 365.0,
+      "price": 4.666,
+      "change": 4.666,
+      "changePct": 366.6,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 17.18,
-      "change": 17.18,
-      "changePct": 1618.0,
+      "price": 17.17,
+      "change": 17.17,
+      "changePct": 1617.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.107,
-      "change": 1.107,
-      "changePct": 10.7,
+      "price": 1.1,
+      "change": 1.1,
+      "changePct": 10.0,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.208,
-      "change": 3.208,
-      "changePct": 220.8,
+      "price": 3.214,
+      "change": 3.214,
+      "changePct": 221.4,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 20.1,
-      "change": 20.1,
-      "changePct": 1910.0,
+      "price": 20.15,
+      "change": 20.15,
+      "changePct": 1915.0,
       "volume": null
     },
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.71,
-      "change": 4.71,
-      "changePct": 371.0,
+      "price": 4.73,
+      "change": 4.73,
+      "changePct": 373.0,
       "volume": null
     },
     {
@@ -76,9 +76,9 @@
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.64,
-      "change": 13.64,
-      "changePct": 1264.0,
+      "price": 13.62,
+      "change": 13.62,
+      "changePct": 1262.0,
       "volume": null
     }
   ]
