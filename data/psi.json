@@ -1,52 +1,52 @@
 {
-  "updated": "2026-08-20T11:29:50Z",
+  "updated": "2026-08-20T11:56:18Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 21.7,
-      "change": 21.7,
-      "changePct": 2070.0,
+      "price": 21.72,
+      "change": 21.72,
+      "changePct": 2072.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.626,
-      "change": 4.626,
-      "changePct": 362.6,
+      "price": 4.625,
+      "change": 4.625,
+      "changePct": 362.5,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 16.86,
-      "change": 16.86,
-      "changePct": 1586.0,
+      "price": 16.87,
+      "change": 16.87,
+      "changePct": 1587.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.083,
-      "change": 1.083,
-      "changePct": 8.3,
+      "price": 1.082,
+      "change": 1.082,
+      "changePct": 8.2,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.24,
-      "change": 3.24,
-      "changePct": 224.0,
+      "price": 3.236,
+      "change": 3.236,
+      "changePct": 223.6,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 20.2,
-      "change": 20.2,
-      "changePct": 1920.0,
+      "price": 20.1,
+      "change": 20.1,
+      "changePct": 1910.0,
       "volume": null
     },
     {
@@ -68,17 +68,17 @@
     {
       "symbol": "SON.LS",
       "name": "Sonae",
-      "price": 1.986,
-      "change": 1.986,
-      "changePct": 98.6,
+      "price": 1.98,
+      "change": 1.98,
+      "changePct": 98.0,
       "volume": null
     },
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.52,
-      "change": 13.52,
-      "changePct": 1252.0,
+      "price": 13.5,
+      "change": 13.5,
+      "changePct": 1250.0,
       "volume": null
     }
   ]
