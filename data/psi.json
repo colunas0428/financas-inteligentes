@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21T14:38:45Z",
+  "updated": "2026-08-21T15:36:38Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
@@ -12,25 +12,25 @@
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.632,
-      "change": 4.632,
-      "changePct": 363.2,
+      "price": 4.623,
+      "change": 4.623,
+      "changePct": 362.3,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 17.53,
-      "change": 17.53,
-      "changePct": 1653.0,
+      "price": 17.5,
+      "change": 17.5,
+      "changePct": 1650.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.099,
-      "change": 1.099,
-      "changePct": 9.9,
+      "price": 1.096,
+      "change": 1.096,
+      "changePct": 9.6,
       "volume": null
     },
     {
@@ -52,9 +52,9 @@
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.74,
-      "change": 4.74,
-      "changePct": 374.0,
+      "price": 4.73,
+      "change": 4.73,
+      "changePct": 373.0,
       "volume": null
     },
     {
@@ -68,17 +68,17 @@
     {
       "symbol": "SON.LS",
       "name": "Sonae",
-      "price": 2.005,
-      "change": 2.005,
-      "changePct": 100.5,
+      "price": 2.01,
+      "change": 2.01,
+      "changePct": 101.0,
       "volume": null
     },
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.57,
-      "change": 13.57,
-      "changePct": 1257.0,
+      "price": 13.54,
+      "change": 13.54,
+      "changePct": 1254.0,
       "volume": null
     }
   ]
