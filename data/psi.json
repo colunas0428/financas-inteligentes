@@ -1,28 +1,28 @@
 {
-  "updated": "2026-08-21T11:29:37Z",
+  "updated": "2026-08-21T11:55:59Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 21.88,
-      "change": 21.88,
-      "changePct": 2088.0,
+      "price": 21.82,
+      "change": 21.82,
+      "changePct": 2082.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.666,
-      "change": 4.666,
-      "changePct": 366.6,
+      "price": 4.664,
+      "change": 4.664,
+      "changePct": 366.4,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 17.35,
-      "change": 17.35,
-      "changePct": 1635.0,
+      "price": 17.3,
+      "change": 17.3,
+      "changePct": 1630.0,
       "volume": null
     },
     {
@@ -36,9 +36,9 @@
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.268,
-      "change": 3.268,
-      "changePct": 226.8,
+      "price": 3.262,
+      "change": 3.262,
+      "changePct": 226.2,
       "volume": null
     },
     {
@@ -52,9 +52,9 @@
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.72,
-      "change": 4.72,
-      "changePct": 372.0,
+      "price": 4.725,
+      "change": 4.725,
+      "changePct": 372.5,
       "volume": null
     },
     {
