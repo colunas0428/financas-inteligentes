@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-21T10:33:45Z",
+  "updated": "2026-08-21T11:29:37Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 21.87,
-      "change": 21.87,
-      "changePct": 2087.0,
+      "price": 21.88,
+      "change": 21.88,
+      "changePct": 2088.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.665,
-      "change": 4.665,
-      "changePct": 366.5,
+      "price": 4.666,
+      "change": 4.666,
+      "changePct": 366.6,
       "volume": null
     },
     {
@@ -28,41 +28,41 @@
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.094,
-      "change": 1.094,
-      "changePct": 9.4,
+      "price": 1.098,
+      "change": 1.098,
+      "changePct": 9.8,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.258,
-      "change": 3.258,
-      "changePct": 225.8,
+      "price": 3.268,
+      "change": 3.268,
+      "changePct": 226.8,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 20.5,
-      "change": 20.5,
-      "changePct": 1950.0,
+      "price": 20.6,
+      "change": 20.6,
+      "changePct": 1960.0,
       "volume": null
     },
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.735,
-      "change": 4.735,
-      "changePct": 373.5,
+      "price": 4.72,
+      "change": 4.72,
+      "changePct": 372.0,
       "volume": null
     },
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 6.375,
-      "change": 6.375,
-      "changePct": 537.5,
+      "price": 6.43,
+      "change": 6.43,
+      "changePct": 543.0,
       "volume": null
     },
     {
@@ -76,9 +76,9 @@
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.76,
-      "change": 13.76,
-      "changePct": 1276.0,
+      "price": 13.75,
+      "change": 13.75,
+      "changePct": 1275.0,
       "volume": null
     }
   ]
