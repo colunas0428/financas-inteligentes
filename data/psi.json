@@ -1,44 +1,44 @@
 {
-  "updated": "2026-08-25T14:50:10Z",
+  "updated": "2026-08-25T15:45:57Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 21.33,
-      "change": 21.33,
-      "changePct": 2033.0,
+      "price": 21.31,
+      "change": 21.31,
+      "changePct": 2031.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.688,
-      "change": 4.688,
-      "changePct": 368.8,
+      "price": 4.689,
+      "change": 4.689,
+      "changePct": 368.9,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 18.25,
-      "change": 18.25,
-      "changePct": 1725.0,
+      "price": 18.22,
+      "change": 18.22,
+      "changePct": 1722.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.111,
-      "change": 1.111,
-      "changePct": 11.15,
+      "price": 1.112,
+      "change": 1.112,
+      "changePct": 11.2,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.286,
-      "change": 3.286,
-      "changePct": 228.6,
+      "price": 3.284,
+      "change": 3.284,
+      "changePct": 228.4,
       "volume": null
     },
     {
@@ -52,17 +52,17 @@
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.755,
-      "change": 4.755,
-      "changePct": 375.5,
+      "price": 4.745,
+      "change": 4.745,
+      "changePct": 374.5,
       "volume": null
     },
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 6.53,
-      "change": 6.53,
-      "changePct": 553.0,
+      "price": 6.56,
+      "change": 6.56,
+      "changePct": 556.0,
       "volume": null
     },
     {
