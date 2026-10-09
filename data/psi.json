@@ -1,76 +1,76 @@
 {
-  "updated": "2026-10-09T14:14:08Z",
+  "updated": "2026-10-09T19:38:46Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 22.47,
-      "change": 22.47,
-      "changePct": 2147.0,
+      "price": 22.51,
+      "change": 22.51,
+      "changePct": 2151.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.8,
-      "change": 4.8,
-      "changePct": 380.0,
+      "price": 4.799,
+      "change": 4.799,
+      "changePct": 379.9,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 17.25,
-      "change": 17.25,
-      "changePct": 1625.0,
+      "price": 17.13,
+      "change": 17.13,
+      "changePct": 1613.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.104,
-      "change": 1.104,
-      "changePct": 10.4,
+      "price": 1.097,
+      "change": 1.097,
+      "changePct": 9.7,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.076,
-      "change": 3.076,
-      "changePct": 207.6,
+      "price": 3.058,
+      "change": 3.058,
+      "changePct": 205.8,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 19.2,
-      "change": 19.2,
-      "changePct": 1820.0,
+      "price": 19.14,
+      "change": 19.14,
+      "changePct": 1814.0,
       "volume": null
     },
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.225,
-      "change": 4.225,
-      "changePct": 322.5,
+      "price": 4.22,
+      "change": 4.22,
+      "changePct": 322.0,
       "volume": null
     },
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 5.76,
-      "change": 5.76,
-      "changePct": 476.0,
+      "price": 5.735,
+      "change": 5.735,
+      "changePct": 473.5,
       "volume": null
     },
     {
       "symbol": "SON.LS",
       "name": "Sonae",
-      "price": 2.07,
-      "change": 2.07,
-      "changePct": 107.0,
+      "price": 2.05,
+      "change": 2.05,
+      "changePct": 105.0,
       "volume": null
     },
     {
