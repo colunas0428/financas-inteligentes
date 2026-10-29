@@ -1,52 +1,52 @@
 {
-  "updated": "2026-10-29T13:59:25Z",
+  "updated": "2026-10-29T19:31:46Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 20.76,
-      "change": 20.76,
-      "changePct": 1976.0,
+      "price": 20.65,
+      "change": 20.65,
+      "changePct": 1965.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.907,
-      "change": 4.907,
-      "changePct": 390.7,
+      "price": 4.899,
+      "change": 4.899,
+      "changePct": 389.9,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 18.22,
-      "change": 18.22,
-      "changePct": 1722.0,
+      "price": 18.29,
+      "change": 18.29,
+      "changePct": 1729.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.115,
-      "change": 1.115,
-      "changePct": 11.45,
+      "price": 1.105,
+      "change": 1.105,
+      "changePct": 10.5,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.07,
-      "change": 3.07,
-      "changePct": 207.0,
+      "price": 3.078,
+      "change": 3.078,
+      "changePct": 207.8,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 20.0,
-      "change": 20.0,
-      "changePct": 1900.0,
+      "price": 19.86,
+      "change": 19.86,
+      "changePct": 1886.0,
       "volume": null
     },
     {
@@ -60,25 +60,25 @@
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 5.415,
-      "change": 5.415,
-      "changePct": 441.5,
+      "price": 5.43,
+      "change": 5.43,
+      "changePct": 443.0,
       "volume": null
     },
     {
       "symbol": "SON.LS",
       "name": "Sonae",
-      "price": 2.1,
-      "change": 2.1,
-      "changePct": 110.0,
+      "price": 2.105,
+      "change": 2.105,
+      "changePct": 110.5,
       "volume": null
     },
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 12.65,
-      "change": 12.65,
-      "changePct": 1165.0,
+      "price": 12.63,
+      "change": 12.63,
+      "changePct": 1163.0,
       "volume": null
     }
   ]
