@@ -1,52 +1,52 @@
 {
-  "updated": "2026-11-11T14:58:40Z",
+  "updated": "2026-11-11T21:50:56Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
       "name": "Galp",
-      "price": 18.85,
-      "change": 18.85,
-      "changePct": 1785.0,
+      "price": 19.0,
+      "change": 19.0,
+      "changePct": 1800.0,
       "volume": null
     },
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 5.004,
-      "change": 5.004,
-      "changePct": 400.4,
+      "price": 5.058,
+      "change": 5.058,
+      "changePct": 405.8,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 19.47,
-      "change": 19.47,
-      "changePct": 1847.0,
+      "price": 19.49,
+      "change": 19.49,
+      "changePct": 1849.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.143,
-      "change": 1.143,
-      "changePct": 14.3,
+      "price": 1.152,
+      "change": 1.152,
+      "changePct": 15.2,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.028,
-      "change": 3.028,
-      "changePct": 202.8,
+      "price": 3.026,
+      "change": 3.026,
+      "changePct": 202.6,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 19.8,
-      "change": 19.8,
-      "changePct": 1880.0,
+      "price": 19.82,
+      "change": 19.82,
+      "changePct": 1882.0,
       "volume": null
     },
     {
@@ -60,9 +60,9 @@
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 4.724,
-      "change": 4.724,
-      "changePct": 372.4,
+      "price": 4.712,
+      "change": 4.712,
+      "changePct": 371.2,
       "volume": null
     },
     {
@@ -76,9 +76,9 @@
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.87,
-      "change": 13.87,
-      "changePct": 1287.0,
+      "price": 13.95,
+      "change": 13.95,
+      "changePct": 1295.0,
       "volume": null
     }
   ]
