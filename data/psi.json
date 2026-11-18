@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18T16:17:19Z",
+  "updated": "2026-11-18T23:01:07Z",
   "stocks": [
     {
       "symbol": "GALP.LS",
@@ -12,57 +12,57 @@
     {
       "symbol": "EDP.LS",
       "name": "EDP",
-      "price": 4.918,
-      "change": 4.918,
-      "changePct": 391.8,
+      "price": 4.923,
+      "change": 4.923,
+      "changePct": 392.3,
       "volume": null
     },
     {
       "symbol": "JMT.LS",
       "name": "Jerónimo Martins",
-      "price": 19.41,
-      "change": 19.41,
-      "changePct": 1841.0,
+      "price": 19.37,
+      "change": 19.37,
+      "changePct": 1837.0,
       "volume": null
     },
     {
       "symbol": "BCP.LS",
       "name": "BCP Millennium",
-      "price": 1.103,
-      "change": 1.103,
-      "changePct": 10.3,
+      "price": 1.099,
+      "change": 1.099,
+      "changePct": 9.95,
       "volume": null
     },
     {
       "symbol": "NVG.LS",
       "name": "Navigator",
-      "price": 3.01,
-      "change": 3.01,
-      "changePct": 201.0,
+      "price": 3.0,
+      "change": 3.0,
+      "changePct": 200.0,
       "volume": null
     },
     {
       "symbol": "SEM.LS",
       "name": "Semapa",
-      "price": 19.6,
-      "change": 19.6,
-      "changePct": 1860.0,
+      "price": 19.58,
+      "change": 19.58,
+      "changePct": 1858.0,
       "volume": null
     },
     {
       "symbol": "ALTR.LS",
       "name": "Altri",
-      "price": 4.205,
-      "change": 4.205,
-      "changePct": 320.5,
+      "price": 4.2,
+      "change": 4.2,
+      "changePct": 320.0,
       "volume": null
     },
     {
       "symbol": "CTT.LS",
       "name": "CTT",
-      "price": 4.738,
-      "change": 4.738,
-      "changePct": 373.8,
+      "price": 4.698,
+      "change": 4.698,
+      "changePct": 369.8,
       "volume": null
     },
     {
@@ -76,9 +76,9 @@
     {
       "symbol": "EDPR.LS",
       "name": "EDP Renováveis",
-      "price": 13.3,
-      "change": 13.3,
-      "changePct": 1230.0,
+      "price": 13.33,
+      "change": 13.33,
+      "changePct": 1233.0,
       "volume": null
     }
   ]
